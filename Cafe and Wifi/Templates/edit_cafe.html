@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Cafe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Edit Cafe</h1>
+    <form action="{{ url_for('edit_cafe', id=cafe.id) }}" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ cafe.name }}" required>
+        <label for="wifi">Wifi Quality:</label>
+        <input type="text" id="wifi" name="wifi" value="{{ cafe.wifi }}" required>
+        <label for="coffee">Coffee Quality:</label>
+        <input type="text" id="coffee" name="coffee" value="{{ cafe.coffee }}" required>
+        <button type="submit">Update Cafe</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to Cafe List</a>
+</body>
+</html>

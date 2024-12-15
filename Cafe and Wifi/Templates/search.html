@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Cafes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Search Results</h1>
+    <a href="{{ url_for('index') }}">Back to Cafe List</a>
+    <form action="{{ url_for('search') }}" method="GET">
+        <input type="text" name="query" value="{{ query }}" placeholder="Search for cafes...">
+        <button type="submit">Search</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Wifi Quality</th>
+                <th>Coffee Quality</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cafe in cafes %}
+            <tr>
+                <td>{{ cafe.name }}</td>
+                <td>{{ cafe.wifi }}</td>
+                <td>{{ cafe.coffee }}</td>
+                <td>
+                    <a href="{{ url_for('edit_cafe', id=cafe.id) }}">Edit</a>
+                    <form action="{{ url_for('delete_cafe', id=cafe.id) }}" method="POST" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
