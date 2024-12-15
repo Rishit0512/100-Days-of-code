@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Color Extractor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Advanced Color Extractor</h1>
+        <input type="file" id="imageInput" accept="image/*">
+        <label for="colorCount">Number of Colors:</label>
+        <input type="number" id="colorCount" value="10" min="1" max="20">
+        
+        <!-- Image Preview -->
+        <div id="imagePreviewContainer">
+            <img id="imagePreview" src="" alt="Image Preview" style="display:none;">
+        </div>
+        
+        <canvas id="imageCanvas" style="display:none;"></canvas>
+        <div id="colorPalette" class="color-palette"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
